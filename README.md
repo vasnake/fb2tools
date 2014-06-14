@@ -29,5 +29,5 @@ Install package using setuptools and virtualenv
 
 Call a function
 
-    python -m fb2tools -fn namezip -wd /path/to/write/zip -sd /path/where/search/fb2
-    python -m fb2tools -fn stripauth -wd /path/where/search/zip
+    python -u -m fb2tools namezip --workdir /path/to/write/zip --scandir /path/where/search/fb2
+    python -u -m fb2tools stripauthor --workdir /path/where/search/zip
