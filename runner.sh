@@ -17,7 +17,7 @@ execFb2Tools() {
     source env/bin/activate
     export PYTHONIOENCODING=UTF-8
     python -u -m fb2tools namezip --workdir /home/valik/t/b2/zip --scandir /home/valik/t/b2/fb2
-    #~ python -u -m fb2tools stripauthor --workdir /home/valik/t/b2/zip
+    python -u -m fb2tools stripauthor --workdir /home/valik/t/b2/zip
 }
 
 ################################################################################

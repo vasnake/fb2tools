@@ -23,6 +23,8 @@ Install package using setuptools and virtualenv
 
     python setup.py develop
     or
+    pip install git+git://github.com/vasnake/fb2tools.git@master
+    or
     pip install /path/to/sdist/distribution/fb2tools-0.0.1.zip
 
 Call a function
