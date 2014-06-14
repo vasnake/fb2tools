@@ -1,3 +1,6 @@
+# Trash bin
+t/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
