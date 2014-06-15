@@ -3,12 +3,14 @@
 # (c) Valik mailto:vasnake@gmail.com
 
 '''
-zipToFullname это решение следующей задачи:
+zipToFullname это решение такой задачи:
 найти в папке все книги (*.fb2); выяснить имя автора и название книги из содержимого файла;
 запаковать каждую книгу в zip-файл с именем, составленными из автора и названия книги.
 
-Задача решается используя fb2desc (http://pybookreader.narod.ru/fb2desc.tgz http://pybookreader.narod.ru/misc.html)
+Задача решается используя fb2desc
 для получения имени автора книги и названия книги.
+    http://pybookreader.narod.ru/fb2desc.tgz
+    http://pybookreader.narod.ru/misc.html
 
 booksNameStays это решение другой задачи:
 после того как книги разложены по каталогам - именам авторов,
@@ -26,12 +28,10 @@ import trans
 import random, string
 
 
-def randomword(length):
-    return ''.join(random.choice(string.lowercase) for i in range(length))
-
-
 def normalize(fn, translit=False):
-    ''' Убрать лишнее из строки, представляющей собой имя файла
+    '''Normalize filename 'fn' by removing bad symbols like '*, /, \, ?' and so on.
+    Also remove substrings noted in given list.
+    If 'translit' is True encode filename to latin alphabet using 'trans' package.
     '''
     if translit: res = fn.decode('utf8').encode('trans').strip()
     else: res = fn
@@ -57,6 +57,12 @@ def normalize(fn, translit=False):
         bname = parts[1][:80]
         res = ' - '.join([auth, bname])
     return res.decode('cp1251').encode('utf8')
+
+
+def randomword(length):
+    '''Returns random string with given length
+    '''
+    return ''.join(random.choice(string.lowercase) for i in range(length))
 
 
 def zipToFullname(workdir, scandir):

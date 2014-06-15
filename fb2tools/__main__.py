@@ -23,7 +23,7 @@ import baker
 @baker.command
 def namezip(workdir='', scandir=''):
     '''Search *.fb2 files inside scandir, extract Author and Book Name from it, pack each fb2 file
-    to workdir/Author - Book Name.zip
+    to workdir/Author - Book Name.fb2.zip
 
     :param workdir: /path/to/write/zip
     :param scandir: /path/where/search/fb2

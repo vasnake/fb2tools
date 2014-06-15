@@ -3,18 +3,28 @@ fb2tools
 
 Python scripts for prepare FB2 files easily
 
-Пакет Python собранный из fb2desc.py by Con Radchenko
-и нескольких дополнительных фунций.
+This Python package make use of fb2desc.py by [Con Radchenko] and contains some useful functions.
+In the beginning it was [Prelude].
 
-``fb2tools.zipname.zipToFullname`` решает следующую задачу:
-найти в папке все книги ``*.fb2``;
-выяснить имя автора и название книги из содержимого файла;
-запаковать каждую книгу в zip-файл с именем, составленными из автора и названия книги.
+Function
 
-``fb2tools.zipname.booksNameStays`` это решение другой задачи:
-после того как книги разложены по каталогам - именам авторов,
-можно удалить из имен файлов слеши и двоеточия (``\/:``) и имена авторов
-(до разделителя " - ").
+    fb2tools.zipname.zipToFullname
+    or console command
+    python -u -m fb2tools namezip --workdir /path/to/write/zip --scandir /path/where/search/fb2
+
+Search for all ``*.fb2`` files in ``scandir`` folder recursively and for each file:
+- extract Author name and Book name;
+- pack book to ``workdir/Authorname - Bookname.fb2.zip`` file.
+
+Function
+
+    fb2tools.zipname.booksNameStays
+    or console command
+    python -u -m fb2tools stripauthor --workdir /path/where/search/zip
+
+Search for all ``*.zip`` files in ``workdir`` folder recursively and for each file:
+- rename file from ``Authorname - Bookname.fb2.zip`` to ``Bookname.fb2.zip``;
+- remove non alphabetic symbols from filename.
 
 Usage
 -----
@@ -31,3 +41,6 @@ Call a function
 
     python -u -m fb2tools namezip --workdir /path/to/write/zip --scandir /path/where/search/fb2
     python -u -m fb2tools stripauthor --workdir /path/where/search/zip
+
+[Prelude]:http://vasnake.blogspot.ru/2011/04/blog-post_18.html
+[Con Radchenko]:http://pybookreader.narod.ru/misc.html
