@@ -684,7 +684,12 @@ must be 1, 2, 3, 4, 5, 6
                         continue
         else:
             options['suffix'] = '.fb2'
-            data = open(raw_filename).read()
+            data = None
+            try:
+                data = open(raw_filename).read()
+            except IOError as e:
+                data = open(filename).read()
+
             if data.startswith('BZh'):
                 import bz2
                 options['suffix'] = '.fb2.bz2'
@@ -701,4 +706,3 @@ must be 1, 2, 3, 4, 5, 6
 
 if __name__ == '__main__':
     main()
-
